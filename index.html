@@ -31,17 +31,25 @@ body{font-family:'Noto Sans KR',sans-serif;color:var(--tx);background:var(--wh);
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--br);transition:box-shadow .3s}
 nav.sc{box-shadow:var(--s1)}
-.ni{display:flex;align-items:center;justify-content:space-between;height:70px}
-.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.ni{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:space-between;height:70px}
+.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
 .nlogo svg{width:32px;height:32px}
 .nlt{font-size:17px;font-weight:900;color:var(--gd);letter-spacing:-.02em}
 .nlt span{color:var(--red)}
-.nlinks{display:flex;align-items:center;gap:26px;list-style:none}
-.nlinks a{font-size:13px;font-weight:500;color:var(--tm);text-decoration:none;transition:color .2s}
+.nlinks{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:22px;list-style:none;padding:0;margin:0}
+.nlinks a{font-size:13px;font-weight:500;color:var(--tm);text-decoration:none;transition:color .2s;white-space:nowrap}
 .nlinks a:hover{color:var(--red)}
-.nr{display:flex;align-items:center;gap:12px}
-.ntel{font-size:15px;font-weight:800;color:var(--gd);text-decoration:none}
+.nr{display:flex;flex-direction:row;align-items:center;gap:12px;flex-shrink:0}
+.ntel{font-size:15px;font-weight:800;color:var(--gd);text-decoration:none;white-space:nowrap}
 .ntel:hover{color:var(--red)}
+.nmob{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;flex-shrink:0}
+.nmob span{display:block;width:22px;height:2px;background:var(--gd);transition:all .3s;border-radius:2px}
+.ndrawer{display:none;position:fixed;top:70px;left:0;right:0;background:#fff;border-bottom:1px solid var(--br);box-shadow:var(--s2);z-index:99;padding:16px 24px 20px}
+.ndrawer.open{display:block}
+.ndrawer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
+.ndrawer ul li a{display:block;padding:11px 0;font-size:14px;font-weight:500;color:var(--tm);text-decoration:none;border-bottom:1px solid var(--br)}
+.ndrawer ul li:last-child a{border-bottom:none}
+.ndrawer ul li a:hover{color:var(--red)}
 
 /* HERO */
 #hero{min-height:100vh;background:linear-gradient(135deg,var(--gd) 0%,#1a2e40 55%,#0f1e2a 100%);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px}
@@ -326,17 +334,14 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
 .gallery-item:hover .gallery-item-label{opacity:1;transform:translateY(0)}
 /* 사례 카드 이미지 */
 .csc-img{width:100%;height:180px;object-fit:cover;display:block}
-@media(max-width:768px){
-  .gallery-grid{grid-template-columns:1fr}
-  .gallery-item{aspect-ratio:16/9}
-  .gallery-item-overlay{opacity:1}
-  .gallery-item-label{opacity:1;transform:translateY(0)}
-}
-
 /* ANIM */
 .fu{opacity:0;transform:translateY(26px);transition:opacity .62s ease,transform .62s ease}
 .fu.v{opacity:1;transform:translateY(0)}
 
+@media(max-width:1024px){
+  .nlinks{gap:16px}
+  .ntel{display:none}
+}
 @media(max-width:900px){
   .hgrid{grid-template-columns:1fr}
   .dgrid{grid-template-columns:1fr}
@@ -344,8 +349,9 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
 }
 @media(max-width:768px){
   .nlinks{display:none}
-  .hgrid{grid-template-columns:1fr}
-  .hcw{display:flex !important}
+  .nr .btnp{display:none}
+  .nmob{display:flex}
+  .hcw{display:flex}
   .dgrid,.cingrid,.dcon,.fgrid,.rgrid,.res-compare,.fgrid3,.fgrid2{grid-template-columns:1fr}
   .section{padding:58px 0}
   .cwrap{padding:20px 16px}
@@ -355,6 +361,10 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
   .cases-grid{grid-template-columns:1fr}
   .bar-wrap{gap:16px}
   .tog{font-size:11px;padding:8px 2px}
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-item{aspect-ratio:16/9}
+  .gallery-item-overlay{opacity:1}
+  .gallery-item-label{opacity:1;transform:translateY(0)}
 }
 @media(max-width:480px){
   .htitle{font-size:26px}
@@ -390,10 +400,25 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
       <div class="nr">
         <a href="tel:1588-2672" class="ntel">📞 1588-2672</a>
         <a href="#consult" class="btnp" style="padding:10px 17px;font-size:13px">무료 컨설팅</a>
+        <button class="nmob" onclick="toggleNav()" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </div>
 </nav>
+<div class="ndrawer" id="ndrawer">
+  <ul>
+    <li><a href="#scope" onclick="closeNav()">관리 대상</a></li>
+    <li><a href="#trust" onclick="closeNav()">신뢰·전문성</a></li>
+    <li><a href="#services" onclick="closeNav()">서비스</a></li>
+    <li><a href="#diff" onclick="closeNav()">차별점</a></li>
+    <li><a href="#calculator" onclick="closeNav()">관리비 견적</a></li>
+    <li><a href="#cases" onclick="closeNav()">도입 사례</a></li>
+    <li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+    <li><a href="#consult" onclick="closeNav()" style="color:var(--red);font-weight:700">무료 컨설팅 신청 →</a></li>
+  </ul>
+</div>
 
 <section id="hero">
   <div class="hero-photo"></div>
@@ -906,8 +931,11 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
 </div>
 
 <script>
+function toggleNav(){document.getElementById('ndrawer').classList.toggle('open');}
+function closeNav(){document.getElementById('ndrawer').classList.remove('open');}
 window.addEventListener('scroll',()=>{
   document.getElementById('nb').classList.toggle('sc',scrollY>20);
+  document.getElementById('ndrawer').classList.remove('open');
   document.querySelectorAll('.fu').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight-50)e.classList.add('v');});
 });
 setTimeout(()=>dispatchEvent(new Event('scroll')),120);
