@@ -29,7 +29,7 @@ body{font-family:'Noto Sans KR',sans-serif;color:var(--tx);background:var(--wh);
 .btno:hover{border-color:rgba(255,255,255,.65);transform:translateY(-2px)}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--br);transition:box-shadow .3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid var(--br);transition:box-shadow .3s}
 nav.sc{box-shadow:var(--s1)}
 .ni{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:space-between;height:70px}
 .nlogo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
@@ -71,7 +71,7 @@ nav.sc{box-shadow:var(--s1)}
 .slbl{font-size:11px;color:rgba(255,255,255,.45);margin-top:5px}
 /* hero right */
 .hcw{display:flex;flex-direction:column;gap:12px}
-.hc{border-radius:var(--rl2);backdrop-filter:blur(10px)}
+.hc{border-radius:var(--rl2)}
 .hcm{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:24px}
 .hcf{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);padding:16px;animation:fl 4s ease-in-out infinite}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
@@ -938,7 +938,7 @@ window.addEventListener('scroll',()=>{
   document.getElementById('ndrawer').classList.remove('open');
   document.querySelectorAll('.fu').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight-50)e.classList.add('v');});
 });
-setTimeout(()=>dispatchEvent(new Event('scroll')),120);
+document.querySelectorAll('.fu').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight-50)e.classList.add('v');});
 
 // 준공연도 슬라이더
 const YR_LABELS=['5년 이하','10년 이하','15년 이하','20년 이하','30년 이상'];
