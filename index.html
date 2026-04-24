@@ -12,9 +12,20 @@
 <meta property="og:description" content="집합건물관리사 자격 보유. 관리단지 117개 이상. 무료 현장 방문 견적 및 컨설팅.">
 <meta property="og:locale" content="ko_KR">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"SM안전주택관리","description":"집합건물·오피스텔·소규모 공동주택 위탁관리 전문업체","telephone":"1588-2672","email":"safehomeofficial11@gmail.com","address":{"@type":"PostalAddress","streetAddress":"꽃마을로36 스타비즈6동 1021호","addressLocality":"덕양구","addressRegion":"고양시","addressCountry":"KR"},"serviceType":["집합건물관리","오피스텔관리","소규모공동주택관리","하자관리","회계관리"]}</script>
+<!-- Critical CSS: nav가 CSS 로드 전에도 절대 70px 초과 안 함 (FOUC 방지) -->
+<style>
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;height:70px;overflow:hidden}
+.ni{display:flex;flex-direction:row;align-items:center;justify-content:space-between;height:70px;padding:0 24px}
+.nlinks{display:none}
+.nlogo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nlogo svg{width:32px;height:32px;flex-shrink:0}
+#hero{min-height:100vh;background:#2C3E50;padding-top:70px}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<!-- 폰트를 비렌더블로킹으로 로드 (FOUC 방지) -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap"></noscript>
 <style>
 :root{--red:#C0392B;--rd:#962d22;--rl:#e74c3c;--gd:#2C3E50;--gm:#4a6070;--bg:#f7f8fa;--wh:#fff;--br:#e2e8ed;--tx:#1a2530;--tm:#5a7080;--s1:0 2px 12px rgba(44,62,80,.08);--s2:0 8px 32px rgba(44,62,80,.13);--s3:0 20px 60px rgba(44,62,80,.18);--r:12px;--rl2:20px}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
