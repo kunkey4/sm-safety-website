@@ -18,7 +18,7 @@ html,body{background:#0f1e2a;margin:0}
 nav#nb{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;height:70px;overflow:hidden}
 .ni{display:flex;flex-direction:row;align-items:center;justify-content:space-between;height:70px;padding:0 24px}
 .nlogo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nlogo svg{width:38px;height:38px;flex-shrink:0}
+.nlogo-img{height:38px;width:auto;display:block;flex-shrink:0}
 #hero{min-height:100vh;background:#2C3E50;padding-top:70px}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,7 @@ nav#nb{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bo
 nav#nb.sc{box-shadow:var(--s1)}
 .ni{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:space-between;height:70px}
 .nlogo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-.nlogo svg{width:38px;height:38px}
+.nlogo-img{height:38px;width:auto;display:block}
 .nlt{font-size:17px;font-weight:900;color:var(--gd);letter-spacing:-.02em}
 .nlt span{color:var(--red)}
 .nlinks{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:22px;list-style:none;padding:0;margin:0}
@@ -392,16 +392,7 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
   <div class="container">
     <div class="ni">
       <a href="#" class="nlogo">
-        <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- 연회색 뒷 건물 -->
-          <rect x="11" y="7" width="21" height="31" rx="1" fill="#C2CAD2"/>
-          <!-- 빨간 사선 좌측 패널 -->
-          <path d="M3 38 L3 17 L11 7 L11 38 Z" fill="#BF3226"/>
-          <!-- 진회색 앞 건물 -->
-          <rect x="17" y="17" width="21" height="21" rx="1" fill="#3C4B58"/>
-          <!-- 아치형 출입구 (흰색) -->
-          <path d="M24 38 L24 30 Q27.5 25.5 31 30 L31 38 Z" fill="rgba(255,255,255,0.88)"/>
-        </svg>
+        <img src="images/logo-icon.png" alt="SM안전주택관리 로고" class="nlogo-img">
         <span class="nlt"><span>SM</span>안전주택관리</span>
       </a>
       <ul class="nlinks">
