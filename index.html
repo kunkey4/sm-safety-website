@@ -933,7 +933,7 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
     </svg>
   </button>
   <a href="https://blog.naver.com/safehousing" target="_blank" class="fb" title="네이버 블로그" style="background:#03C75A;text-decoration:none;display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:13px;font-weight:900;letter-spacing:-.03em">Blog</span></a>
-  <button class="fb fb-top" onclick="scrollTo({top:0,behavior:'smooth'})" title="맨위로"><span style="color:#fff;font-size:15px;font-weight:700">↑</span></button>
+  <button class="fb fb-top" onclick="document.documentElement.scrollTop>0?document.documentElement.scrollTo({top:0,behavior:'smooth'}):document.body.scrollTo({top:0,behavior:'smooth'})" title="맨위로"><span style="color:#fff;font-size:15px;font-weight:700">↑</span></button>
 </div>
 
 <script>
