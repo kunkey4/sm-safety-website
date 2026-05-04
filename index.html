@@ -212,6 +212,13 @@ input[type=range]{width:100%;accent-color:var(--red)}
 textarea.cin{resize:vertical;min-height:84px}
 .consubmit{width:100%;padding:14px;background:var(--red);color:#fff;font-size:14px;font-weight:700;border:none;border-radius:9px;cursor:pointer;transition:all .2s;font-family:'Noto Sans KR',sans-serif}
 .consubmit:hover{background:var(--rl);transform:translateY(-1px)}
+.privacy-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:9px;padding:16px 18px;margin:13px 0}
+.privacy-content p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:7px}
+.privacy-content p:last-child{margin-bottom:0}
+.privacy-notice{color:rgba(255,255,255,.4)!important}
+.privacy-agree{display:flex;gap:20px;margin-top:13px;padding-top:13px;border-top:1px solid rgba(255,255,255,.1)}
+.privacy-label{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.75);cursor:pointer}
+.privacy-label input[type="radio"]{accent-color:var(--red);width:15px;height:15px;cursor:pointer}
 .ordiv{display:flex;align-items:center;gap:13px;margin:18px 0;color:rgba(255,255,255,.28);font-size:12px}
 .ordiv::before,.ordiv::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.1)}
 .dcon{display:grid;grid-template-columns:1fr 1fr;gap:11px}
@@ -846,6 +853,23 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
           <option>기타 문의</option>
         </select>
         <textarea class="cin cinf" id="cMemo" placeholder="추가 문의사항을 자유롭게 작성해주세요."></textarea>
+        <!-- 개인정보 수집 및 이용 동의 -->
+        <div class="privacy-box">
+          <div class="privacy-content">
+            <p><strong>■ 개인정보의 수집·이용 목적</strong><br>문의 접수/처리, 고객 불편 또는 불만사항 해결</p>
+            <p><strong>■ 수집하려는 개인정보의 항목</strong><br>이름, 주소, 연락처, 이메일</p>
+            <p><strong>■ 개인정보의 보유 및 이용 기간</strong><br>회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외없이 해당정보를 파기합니다.</p>
+            <p class="privacy-notice">※ 동의를 거부할 권리가 있으나, 동의하지 않으실 경우 문의 접수가 불가합니다.</p>
+          </div>
+          <div class="privacy-agree">
+            <label class="privacy-label">
+              <input type="radio" name="privacy" value="agree" id="privAgree"> 동의함
+            </label>
+            <label class="privacy-label">
+              <input type="radio" name="privacy" value="disagree" id="privDisagree" checked> 동의안함
+            </label>
+          </div>
+        </div>
         <button class="consubmit" id="submitBtn" onclick="doSubmit()">무료 컨설팅 신청하기 →</button>
         <div class="sucmsg" id="sucMsg">
           ✅ 신청이 완료되었습니다! 담당자가 24시간 내 연락드립니다.<br>
@@ -1051,6 +1075,7 @@ async function doSubmit(){
   const memo  = document.getElementById('cMemo').value.trim();
 
   if(!name||!phone){alert('성함과 연락처는 필수 입력사항입니다.');return;}
+  if(!document.getElementById('privAgree').checked){alert('개인정보 수집 및 이용에 동의해주셔야 신청이 가능합니다.');return;}
 
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
