@@ -837,9 +837,10 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
       <p class="condesc">현장 방문 견적, 관리비 절감 방법, 위탁 전환 절차까지<br>모든 상담이 완전 무료입니다. 부담 없이 문의하세요.</p>
       <div class="conform">
         <div class="cingrid">
-          <input type="text" class="cin" id="cName" placeholder="담당자 성함 *">
+          <input type="text" class="cin" id="cName" placeholder="성함 *">
           <input type="tel" class="cin" id="cPhone" placeholder="연락처 * (010-0000-0000)">
         </div>
+        <input type="text" class="cin cinf" id="cAddr" placeholder="건물 주소 *">
         <div class="cingrid">
           <input type="text" class="cin" id="cBldg" placeholder="건물명 또는 단지명">
           <input type="text" class="cin" id="cUnit" placeholder="세대 수 (예: 50세대)">
@@ -1071,10 +1072,11 @@ async function doSubmit(){
   const phone = document.getElementById('cPhone').value.trim();
   const bldg  = document.getElementById('cBldg').value.trim();
   const unit  = document.getElementById('cUnit').value.trim();
+  const addr  = document.getElementById('cAddr').value.trim();
   const svc   = document.getElementById('cSvc').value;
   const memo  = document.getElementById('cMemo').value.trim();
 
-  if(!name||!phone){alert('성함과 연락처는 필수 입력사항입니다.');return;}
+  if(!name||!phone||!addr){alert('성함, 연락처, 건물 주소는 필수 입력사항입니다.');return;}
   if(!document.getElementById('privAgree').checked){alert('개인정보 수집 및 이용에 동의해주셔야 신청이 가능합니다.');return;}
 
   const btn = document.getElementById('submitBtn');
