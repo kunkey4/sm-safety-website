@@ -1088,8 +1088,9 @@ async function doSubmit(){
   btn.textContent = '전송 중...';
 
   const data = {
-    '담당자 성함': name,
+    '성함': name,
     '연락처': phone,
+    '건물 주소': addr,
     '건물명': bldg || '미입력',
     '세대 수': unit || '미입력',
     '상담 목적': svc || '미선택',
