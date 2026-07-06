@@ -841,15 +841,15 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
       <p class="condesc">현장 방문 견적, 관리비 절감 방법, 위탁 전환 절차까지<br>모든 상담이 완전 무료입니다. 부담 없이 문의하세요.</p>
       <div class="conform">
         <div class="cingrid">
-          <input type="text" class="cin" id="cName" placeholder="성함 *">
-          <input type="tel" class="cin" id="cPhone" placeholder="연락처 * (010-0000-0000)">
+          <input type="text" class="cin" id="cName" name="성함" placeholder="성함 *" required>
+          <input type="tel" class="cin" id="cPhone" name="연락처" placeholder="연락처 * (010-0000-0000)" required>
         </div>
-        <input type="text" class="cin cinf" id="cAddr" placeholder="건물 주소 *">
+        <input type="text" class="cin cinf" id="cAddr" name="건물 주소" placeholder="건물 주소 *" required>
         <div class="cingrid">
-          <input type="text" class="cin" id="cBldg" placeholder="건물명 또는 단지명">
-          <input type="text" class="cin" id="cUnit" placeholder="세대 수 (예: 50세대)">
+          <input type="text" class="cin" id="cBldg" name="건물명" placeholder="건물명 또는 단지명">
+          <input type="text" class="cin" id="cUnit" name="세대수" placeholder="세대 수 (예: 50세대)">
         </div>
-        <select class="cin cinf cinsel" id="cSvc">
+        <select class="cin cinf cinsel" id="cSvc" name="상담목적">
           <option value="">상담 목적을 선택해주세요</option>
           <option>신규 위탁관리 계약</option>
           <option>기존 업체에서 전환</option>
@@ -857,7 +857,7 @@ footer{background:#0f1e2a;color:rgba(255,255,255,.45);padding:42px 0 26px}
           <option>회계·결산 서비스 문의</option>
           <option>기타 문의</option>
         </select>
-        <textarea class="cin cinf" id="cMemo" placeholder="추가 문의사항을 자유롭게 작성해주세요."></textarea>
+        <textarea class="cin cinf" id="cMemo" name="문의내용" placeholder="추가 문의사항을 자유롭게 작성해주세요."></textarea>
         <!-- 개인정보 수집 및 이용 동의 -->
         <div class="privacy-box">
           <div class="privacy-content">
